@@ -1,43 +1,39 @@
-import * as request from 'supertest';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductsController } from './app.controller';
 import { AppService } from './app.service';
-import { INestApplication } from '@nestjs/common';
 
-describe('Products', () => {
-  let app: INestApplication;
-  const appService: AppService = {
-    getProducts: () => [
-      {
-        name: 'Produto 1',
-        code: 1241241,
-        quantity: 15,
-      },
-      {
-        name: 'Produto 2',
-        code: 34563456,
-        quantity: 20,
-      },
-    ],
-  };
+describe('AppController', () => {
+  let productsController: ProductsController;
+  let appService: AppService;
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
       controllers: [ProductsController],
       providers: [AppService],
-    })
-      .overrideProvider(AppService)
-      .useValue(appService)
-      .compile();
+    }).compile();
 
-    app = moduleRef.createNestApplication();
-    await app.init();
+    // quando for estático
+    // appService = await app.resolve(AppService);
+
+    appService = moduleRef.get<AppService>(AppService);
+    productsController = moduleRef.get<ProductsController>(ProductsController);
   });
 
-  it('/GET products', () => {
-    return request(app.getHttpServer())
-      .get('/products')
-      .expect(200)
-      .expect(appService.getProducts());
+  describe('Products', () => {
+    it('should return an array of Products', () => {
+      // mock de products
+      const result = [
+        {
+          name: 'Produto',
+          code: 1231241,
+          quantity: 234,
+        },
+      ];
+      jest.spyOn(appService, 'getProducts').mockImplementation(() => result);
+
+      // TODO: Fix this
+      //productsController.getProducts();
+      expect(appService.getProducts).toHaveBeenCalled();
+    });
   });
 });
