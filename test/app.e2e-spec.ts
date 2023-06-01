@@ -42,4 +42,14 @@ describe('AppController (e2e)', () => {
       .expect(200)
       .expect(appService.getProducts());
   });
+  it('/products (POST)', () => {
+    return request(app.getHttpServer())
+      .post('/products')
+      .send({
+        name: 'Product Name',
+        code: 2342342,
+        quantity: 1234,
+      })
+      .expect(201);
+  });
 });
