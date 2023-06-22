@@ -1,28 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { ProductDto } from './model/ProductDto';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Product } from './database/entites/product.entity';
 
 @Injectable()
 export class AppService {
-  getProducts(): Array<ProductDto> {
-    return [
-      {
-        name: 'Produto 1',
-        code: 1241241,
-        quantity: 15,
-        value: 16.9,
-      },
-      {
-        name: 'Produto 2',
-        code: 34563456,
-        quantity: 20,
-        value: 15.95,
-      },
-      {
-        name: 'Produto 3',
-        code: 56785678,
-        quantity: 7,
-        value: 4.0,
-      },
-    ];
+  constructor(
+    @InjectRepository(Product)
+    private productRepository: Repository<Product>,
+  ) {}
+
+  async getProducts(): Promise<Product[]> {
+    return await this.productRepository.find();
+  }
+
+  async addProduct(product: Product): Promise<Product> {
+    return await this.productRepository.save(product);
   }
 }
