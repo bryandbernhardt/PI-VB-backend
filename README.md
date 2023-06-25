@@ -10,13 +10,11 @@ $ npm install
 ## Executando o app
 
 ```bash
-# watch mode
 $ npm run start:dev
 ```
 
 ## Executando os testes
 
 ```bash
-# e2e tests
 $ npm run test:e2e
 ```
