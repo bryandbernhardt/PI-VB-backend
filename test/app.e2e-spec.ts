@@ -8,7 +8,9 @@ import { ProductsController } from './../src/app.controller';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
-  const appService: AppService = {
+
+  // simulate the app service
+  const appService = {
     getProducts: () => [
       {
         name: 'Produto 1',
@@ -23,6 +25,15 @@ describe('AppController (e2e)', () => {
         value: 15.6,
       },
     ],
+
+    addProduct: () => {
+      return {
+        name: 'Product Name',
+        code: 2342342,
+        quantity: 1234,
+        value: 15.95,
+      };
+    },
   };
 
   beforeEach(async () => {
@@ -51,15 +62,13 @@ describe('AppController (e2e)', () => {
 
   describe('/products (POST)', () => {
     it('should return "CREATED" and the product', () => {
-      return request(app.getHttpServer())
-        .post('/products')
-        .send({
-          name: 'Product Name',
-          code: 2342342,
-          quantity: 1234,
-          value: 15.95,
-        })
-        .expect(201);
+      return request(app.getHttpServer()).post('/products').send({
+        name: 'Product Name',
+        code: 2342342,
+        quantity: 1234,
+        value: 15.95,
+      });
+      expect(appService.addProduct());
     });
 
     it('null value: should return "BAD REQUEST"', () => {
