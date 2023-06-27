@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo-675441896-1680313977-b8da0a9fd72c5b190dc1497d90c2c6df1680313978-480-0.png" />
+  <img src="./src/public/logo-675441896-1680313977-b8da0a9fd72c5b190dc1497d90c2c6df1680313978-480-0.png" />
 </div>
 
 ## Sobre
