@@ -27,4 +27,4 @@ $ npm run test:e2e
 - [Bryan Dietrich Bernhardt](https://github.com/bryandbernhardt)
 - [Fernanda M.](https://github.com/ferdarko)
 - [Gustavo Duso](https://github.com/gduso)
-- [Rafael A. facchin](https://github.com/RafaelFacchin)https://github.com/RafaelFacchin
+- [Rafael A. facchin](https://github.com/RafaelFacchin)
