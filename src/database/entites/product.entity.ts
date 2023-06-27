@@ -56,4 +56,10 @@ export class Product {
     },
   )
   value: number;
+
+  @Column()
+  @IsString({
+    message: 'A imagem deve ser um texto (URL)!',
+  })
+  image: string;
 }
