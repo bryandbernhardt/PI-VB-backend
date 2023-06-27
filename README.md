@@ -28,3 +28,4 @@ $ npm run test:e2e
 - [Fernanda M.](https://github.com/ferdarko)
 - [Gustavo Duso](https://github.com/gduso)
 - [Rafael A. facchin](https://github.com/RafaelFacchin)
+- Bruno Scheineider Saraiva
