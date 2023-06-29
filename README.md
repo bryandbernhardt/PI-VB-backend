@@ -22,5 +22,5 @@ $ yarn run start:dev
 ```bash
 $ yarn run test:e2e
 ```
-## Obs
+### Obs
 Todos os comandos listados acima são executados acessando a pasta raiz do projeto, dentro do terminal.
