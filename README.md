@@ -6,6 +6,7 @@
 Back-end da aplicação Charming Fox, um projeto de e-commerce desenvolvido com Node.JS e Nest para fins de estudo na faculdade de Análise e Desenvolvimento de Sistemas.
 ## Instalação
 1. Instalar o gerenciador de pacotes [yarn](https://classic.yarnpkg.com/lang/en/docs/install/)
+2. Instalar todas as dependências com o Yarn:
 
 ```bash
 $ yarn install
